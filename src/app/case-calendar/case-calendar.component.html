@@ -1,0 +1,9 @@
+<div (click)="caseClicked()" class="one-day">
+  <div class="day-number">{{ day.currentDayOfMonth }}</div>
+  <div *ngIf="day.planning.length > 0" class="day-plans">
+    <div *ngFor="let plan of day.planning" class="day-plan">
+        {{ plan.plan }}
+    </div>
+  </div>
+</div>
+

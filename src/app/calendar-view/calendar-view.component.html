@@ -1,0 +1,15 @@
+<div class="month">
+    <ion-icon (click)="goToLastMonth()" name="md-arrow-back"></ion-icon>
+    <span>{{ currentMonth }} {{ currentYear }}</span>
+    <ion-icon (click)="goToNextMonth()" name="md-arrow-forward"></ion-icon>
+</div>
+<div class="pretty-days">
+  <div *ngFor="let day of daysOfWeek; let i = index;">{{ day }}</div>
+</div>
+<div class="days-block">
+  <app-case-calendar *ngFor="let day of currentMonthDays; let i = index;"
+  [day]="day"
+  [ngClass]="{ 'disabled' : day.indexMonth != indexMonth, 'today' : checkToday(day) }"
+  (eventDay)="eventDay($event)">
+  </app-case-calendar>
+</div>
